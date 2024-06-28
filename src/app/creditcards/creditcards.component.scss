@@ -1,0 +1,111 @@
+/* Container Styles */
+.container1 {
+    display: flex;  // Set display to flex
+    flex-wrap: wrap;  // Allow items to wrap if they exceed container width
+    justify-content: space-between;  // Distribute items with space between them horizontally
+}
+
+/* Base Card Styles */
+.mat-card {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 10px;
+}
+
+/* Flex Item Styles */
+.count-card {
+    flex: 1 1 200px;  // Grow, shrink, and basis values for the item
+    margin: 10px;  // Add margin around each item
+}
+
+/* Success Button/Card */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Warning Button/Card */
+.btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Info Button/Card */
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Light Button */
+.btn-light {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea;
+}
+
+/* Dark Button */
+.btn-dark {
+    background-color: #343a40;
+    color: white;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+}
+
+/* Custom Styles */
+.btn-custom {
+    background-color: #6610f2;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #520dc2;
+}

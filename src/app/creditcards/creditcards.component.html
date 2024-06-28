@@ -1,0 +1,107 @@
+<div class="mat-card" style="display: flex;">
+    <mat-card class="mat-card count-card btn-success">
+        <mat-card-title>Nums of Cards</mat-card-title>
+        <mat-card-content>10</mat-card-content>
+    </mat-card>
+    <mat-card class="mat-card count-card btn-warning">
+        <mat-card-title>Nums of Cards</mat-card-title>
+        <mat-card-content>10</mat-card-content>
+    </mat-card>
+    <mat-card class="mat-card count-card btn-info">
+        <mat-card-title>Nums of Cards</mat-card-title>
+        <mat-card-content>10</mat-card-content>
+    </mat-card>
+    <mat-card class="mat-card count-card">
+        <mat-card-title>Nums of Cards</mat-card-title>
+        <mat-card-content>10</mat-card-content>
+    </mat-card>
+    <mat-card class="mat-card count-card">
+      <mat-card-title>Actions</mat-card-title>
+      <mat-card-content></mat-card-content>
+  </mat-card>
+    
+    
+</div>
+
+<div class="mat-card" style="padding: 10px;">
+  
+<mat-card  appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Listing Credit Cards</mat-card-title>
+    <mat-card-subtitle>Non-sporting group</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource"  matSort>
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+            <!-- Id Column -->
+
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef> </th>
+              <td mat-cell *matCellDef="let row"> 
+                <mat-checkbox >
+                  
+                </mat-checkbox>
+              </td>
+            </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+     <ng-container matColumnDef="bankName">
+        <th mat-header-cell *matHeaderCellDef> bankName </th>
+        <td mat-cell *matCellDef="let element"> {{element.bankName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="maxCredit">
+        <th mat-header-cell *matHeaderCellDef> maxCredit </th>
+        <td mat-cell *matCellDef="let element"> {{element.maxCredit}} </td>
+      </ng-container>
+      <ng-container matColumnDef="interestRate">
+        <th mat-header-cell *matHeaderCellDef> interestRate </th>
+        <td mat-cell *matCellDef="let element"> {{element.interestRate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef> active </th>
+        <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> 
+          <a [routerLink]="['edit',element.id]">
+            <mat-icon aria-hidden="false" aria-label="Example edit icon" fontIcon="edit"></mat-icon>
+
+          </a>
+          <a [routerLink]="['view',element.id]">
+            <mat-icon aria-hidden="false" aria-label="Example visibility icon" fontIcon="visibility"></mat-icon>
+
+          </a>
+          <a [routerLink]="['delete',element.id]">
+            <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+
+          </a>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5,10,15,20,25]"  showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>
+
+</div>
