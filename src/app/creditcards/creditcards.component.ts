@@ -20,7 +20,7 @@ export class CreditcardsComponent {
   creditCards : CreditCard[] = [];
   constructor(private creditCardService : CreditcardsService) {
     this.creditCardService.getCreditCards().subscribe((data : CreditCard[])=>{
-      this.creditCards = data;
+      this.creditCards = this.sortCreditCardsByIdDesc(data);
       console.log(this.creditCards);
       this.dataSource = new MatTableDataSource(this.creditCards);
       this.dataSource.paginator = this.paginator;
@@ -33,6 +33,13 @@ export class CreditcardsComponent {
   dataSource = new MatTableDataSource(this.creditCards);
   selection = new SelectionModel(true,[])
 
+  sortCreditCardsByIdDesc(cards: CreditCard[]): CreditCard[] {
+    return cards.sort((a, b) => {
+      const idA = a.id !== undefined ? a.id : -Infinity;
+      const idB = b.id !== undefined ? b.id : -Infinity;
+      return idB - idA;
+    });
+  }
 
   @ViewChild(MatPaginator) paginator! : MatPaginator;
   @ViewChild(MatSort) sort! : MatSort;
