@@ -4,16 +4,16 @@
     </mat-card-header>
 
     <mat-card-content>
-        <form [formGroup]="creditEditCardForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="editCreditCardForm" (ngSubmit)="onSubmit()">
 
             <input formControlName="id" value={{creditCardId}} type type="hidden"/>
             <div class="form-group">
                 <mat-form-field class="half-width">
                     <label>Credit Card Name</label>
                     <input matInput placeholder="Credit Card Name" formControlName="name">
-                    <mat-error *ngIf="creditEditCardForm.get('name')?.hasError('required')">Name is required</mat-error>
-                    <mat-error *ngIf="creditEditCardForm.get('name')?.hasError('minLength')">Name min length is 3</mat-error>
-                    <mat-error *ngIf="creditEditCardForm.get('name')?.hasError('maxLength')">Name max length is 20</mat-error>
+                    <mat-error *ngIf="editCreditCardForm.get('name')?.hasError('required')">Name is required</mat-error>
+                    <mat-error *ngIf="editCreditCardForm.get('name')?.hasError('minLength')">Name min length is 3</mat-error>
+                    <mat-error *ngIf="editCreditCardForm.get('name')?.hasError('maxLength')">Name max length is 20</mat-error>
                 </mat-form-field>
             </div>
 
@@ -21,7 +21,7 @@
                 <mat-form-field class="half-width">
                     <label>Description</label>
                     <input matInput placeholder="Credit Card Name" formControlName="description">
-                    <mat-error *ngIf="creditEditCardForm.get('description')?.hasError('required')">Description is required</mat-error>
+                    <mat-error *ngIf="editCreditCardForm.get('description')?.hasError('required')">Description is required</mat-error>
                 </mat-form-field>
             </div>
 
@@ -36,6 +36,12 @@
                 <mat-form-field class="half-width">
                     <label>Interest Rate</label>
                     <input matInput placeholder="Credit Card Name" formControlName="interestRate">
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="half-width">
+                    <label>Bank Name</label>
+                    <input matInput placeholder="Bank Name" formControlName="bankName">
                 </mat-form-field>
             </div>
 
@@ -57,7 +63,7 @@
                     <input matInput placeholder="Credit Card Name" formControlName="annualFee">
                 </mat-form-field>
             </div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="!creditEditCardForm.valid">Edit Credit Card</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!editCreditCardForm.valid">Edit Credit Card</button>
 
         </form>
 

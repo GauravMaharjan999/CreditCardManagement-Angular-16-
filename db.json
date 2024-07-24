@@ -184,14 +184,14 @@
     },
     {
       "id": "9756",
-      "name": "Nigel Bernard",
-      "description": "Nostrud voluptatem ",
-      "bankName": "Basil Wallace",
-      "maxCredit": "Est aut vel distinc",
-      "interestRate": "Excepteur voluptas e",
+      "name": "New Credit Card",
+      "description": "Nostrud New Credit Card",
+      "bankName": "Basil New Credit Card",
+      "maxCredit": "Est aut vel New Credit Card",
+      "interestRate": "Excepteur New Credit Carde",
       "active": true,
       "recommendedScore": "100-500",
-      "annualFee": "Voluptas sed nesciun",
+      "annualFee": "Voluptas sed New Credit Card",
       "termsAndConditions": "Terms and conditions for the credit card",
       "createdDate": "2020-02-19T18:15:00.000Z",
       "updatedDate": "2002-07-25T18:15:00.000Z"
@@ -223,20 +223,6 @@
       "termsAndConditions": "Terms and conditions for the credit card",
       "createdDate": "1988-11-25T18:15:00.000Z",
       "updatedDate": "1980-07-23T18:30:00.000Z"
-    },
-    {
-      "id": "8668",
-      "name": "Jessica Dickson",
-      "description": "Repudiandae consequa",
-      "bankName": "Emi Mccoy",
-      "maxCredit": "Dolor dolore irure i",
-      "interestRate": "Adipisci iste facere",
-      "active": true,
-      "recommendedScore": "100-500",
-      "annualFee": "Laborum Incidunt i",
-      "termsAndConditions": "Terms and conditions for the credit card",
-      "createdDate": "2020-12-16T18:15:00.000Z",
-      "updatedDate": "2020-07-11T18:15:00.000Z"
     },
     {
       "id": "0f0e",
