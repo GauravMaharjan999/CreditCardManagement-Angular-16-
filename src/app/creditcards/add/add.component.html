@@ -1,8 +1,18 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Add New Credit Card</mat-card-title>
+        <!-- <mat-card-title style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <span style="flex-grow: 1;">Add New Credit Card</span>
+            <app-back-button></app-back-button>
+          </mat-card-title> -->
+
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <span><h1>Add New Credit Card</h1></span>
+            <app-back-button></app-back-button>
+          </div>
+          
     </mat-card-header>
     <mat-card-content>
+        <!-- app.component.html -->
         <form #creditCardForm="ngForm" (ngSubmit)="saveCreditCard()">
             <div class="form-group">
                 <mat-form-field class="half-width">

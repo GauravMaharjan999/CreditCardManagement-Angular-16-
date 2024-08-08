@@ -5,3 +5,23 @@
 .half-width:last-child{
     margin-left: 20px;
 }
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .title-text {
+    margin-right: auto;
+  }
+  
+  .back-button {
+    margin-left: auto;
+  }

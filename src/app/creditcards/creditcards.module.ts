@@ -20,6 +20,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select'; // Import MatSelectModule
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
+import { HelperModule } from '../helper/helper.module'; // Import the module containing BackButtonComponent
+
 
 
 
@@ -49,7 +51,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatSelectModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatButtonModule
+    MatButtonModule,
+    HelperModule
   ]
 })
 export class CreditcardsModule { }

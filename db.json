@@ -183,20 +183,6 @@
       "updatedDate": "2006-06-07T18:15:00.000Z"
     },
     {
-      "id": "9756",
-      "name": "New Credit Card",
-      "description": "Nostrud New Credit Card",
-      "bankName": "Basil New Credit Card",
-      "maxCredit": "Est aut vel New Credit Card",
-      "interestRate": "Excepteur New Credit Carde",
-      "active": true,
-      "recommendedScore": "100-500",
-      "annualFee": "Voluptas sed New Credit Card",
-      "termsAndConditions": "Terms and conditions for the credit card",
-      "createdDate": "2020-02-19T18:15:00.000Z",
-      "updatedDate": "2002-07-25T18:15:00.000Z"
-    },
-    {
       "id": "cbec",
       "name": "Gaurav Maharjan",
       "description": "Asperiores in qui er",
@@ -251,6 +237,104 @@
       "termsAndConditions": "Terms and conditions for the credit card",
       "createdDate": "2024-07-02T18:15:00.000Z",
       "updatedDate": "2024-07-02T18:15:00.000Z"
+    },
+    {
+      "id": "dcbc",
+      "name": "Donna Vincent",
+      "description": "Quibusdam reiciendis",
+      "bankName": "Merritt Schneider",
+      "maxCredit": "Beatae quae duis dol",
+      "interestRate": "Sit facilis ut corpo",
+      "active": true,
+      "recommendedScore": "100-500",
+      "annualFee": "Voluptas quis molest",
+      "termsAndConditions": "Terms and conditions for the credit card",
+      "createdDate": "1979-10-10T18:30:00.000Z",
+      "updatedDate": "2002-08-13T18:15:00.000Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "creditCards": [
+        {
+          "id": 1,
+          "name": "Bank of America",
+          "description": "Bank of America offers customers with various options",
+          "bankName": "Bank of America",
+          "maxCredit": 3000,
+          "interestRate": 10,
+          "active": true,
+          "recommendedScore": "700-900",
+          "annualFee": 4,
+          "termsAndConditions": "Following are the terms and conditions",
+          "createdDate": "2023-08-31",
+          "updatedDate": "2023-08-31"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "creditCards": [
+        {
+          "id": 2,
+          "name": "Chase Freedom",
+          "description": "Chase Freedom offers cash back on every purchase",
+          "bankName": "Chase",
+          "maxCredit": 5000,
+          "interestRate": 12,
+          "active": true,
+          "recommendedScore": "680-850",
+          "annualFee": 0,
+          "termsAndConditions": "Following are the terms and conditions",
+          "createdDate": "2023-08-31",
+          "updatedDate": "2023-08-31"
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Damian Powell",
+      "email": "cufequmer@mailinator.com",
+      "phone": "+1 (908) 395-1446",
+      "orders": [
+        {
+          "id": 0,
+          "customerId": 0,
+          "product": "Quia odio voluptatem",
+          "amount": 96
+        },
+        {
+          "id": 0,
+          "customerId": 0,
+          "product": "Necessitatibus persp",
+          "amount": 45
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Amaya Harrell",
+      "email": "wacaza@mailinator.com",
+      "phone": "+1 (872) 963-5745",
+      "orders": [
+        {
+          "id": 0,
+          "customerId": 0,
+          "product": "Qui nisi dolore adip",
+          "amount": 51
+        },
+        {
+          "id": 0,
+          "customerId": 0,
+          "product": "Non doloremque qui q",
+          "amount": 12
+        }
+      ]
     }
   ]
 }

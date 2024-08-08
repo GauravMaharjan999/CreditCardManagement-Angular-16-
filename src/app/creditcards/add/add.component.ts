@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreditCard } from 'src/app/models/credit-card';
 import { CreditcardsService } from 'src/app/services/creditcards.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -27,7 +27,7 @@ export class AddComponent {
   creditCardDetails !: CreditCard ;
   creditCardDetailId !: Number ;
 
-  constructor(private creditCardService : CreditcardsService, private router : Router) {
+  constructor(private creditCardService : CreditcardsService, private router : Router,private location: Location) {
     
   }
   saveCreditCard() {
@@ -38,4 +38,8 @@ export class AddComponent {
     })
     this.router.navigate(['creditcards']);
   }
+  goBack(): void {
+    this.location.back();
+  }
 }
+
