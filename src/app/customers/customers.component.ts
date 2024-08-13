@@ -3,6 +3,7 @@ import { Customer } from '../models/customer';
 // import { CustomerService } from '../services/customer.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { CustomerDbService } from '../services/customerdb.service';
+import { Subject, takeUntil } from 'rxjs';
 
 
 @Component({
@@ -13,6 +14,9 @@ import { CustomerDbService } from '../services/customerdb.service';
 export class CustomersComponent {
   customers: Customer[] = [];
   selectedCustomer: Customer | null = null;
+  private unsubscribe$ = new Subject<void>();
+
+  
   displayedColumns: string[] = [
     'id', 
     'name'
@@ -27,7 +31,9 @@ export class CustomersComponent {
   }
 
   loadCustomers(): void {
-    this.customerService.getCustomers().subscribe(customers => {
+    this.customerService.getCustomers()
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe(customers => {
     console.log("This is Customer List", customers)
 
       this.customers = customers;
@@ -61,4 +67,9 @@ export class CustomersComponent {
     this.loadCustomers();
     this.selectedCustomer = null;
   }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+  
 }

@@ -1,42 +1,43 @@
-<!-- add.component.html -->
-<h2>Add Customer</h2>
-<form (ngSubmit)="onSubmit()" #customerForm="ngForm">
-  <div>
+<h2 class="text-center mb-4">Add Customer</h2>
+<form (ngSubmit)="onSubmit()" #customerForm="ngForm" class="container">
+  <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" id="name" required [(ngModel)]="customer.name" name="name" #name="ngModel">
+    <input type="text" id="name" class="form-control" required [(ngModel)]="customer.name" name="name" #name="ngModel">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="email">Email:</label>
-    <input type="email" id="email" required [(ngModel)]="customer.email" name="email" #email="ngModel">
+    <input type="email" id="email" class="form-control" required [(ngModel)]="customer.email" name="email" #email="ngModel">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="phone">Phone:</label>
-    <input type="text" id="phone" required [(ngModel)]="customer.phone" name="phone" #phone="ngModel">
+    <input type="text" id="phone" class="form-control" required [(ngModel)]="customer.phone" name="phone" #phone="ngModel">
   </div>
 
-  <div *ngFor="let order of customer.orders; let i = index">
-    <h3>Order {{ i + 1 }}</h3>
-    <div>
-      <label for="orderNo">order No:</label>
-      <input type="text" id="orderNo" required [(ngModel)]="order.orderNo" name="orderNo-{{i}}" #orderNo="ngModel">
-    </div>
-    <div>
-      <label for="pmethod">pmethod:</label>
-      <input type="text" id="pmethod" required [(ngModel)]="order.pmethod" name="pmethod-{{i}}" #pmethod="ngModel">
-    </div>
-    <div>
-        <label for="gtotal">gtotal:</label>
-        <input type="number" id="gtotal" required [(ngModel)]="order.gtotal" name="gtotal-{{i}}" #gtotal="ngModel">
+  <div *ngFor="let order of customer.orders; let i = index" class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">Order {{ i + 1 }}</h3>
+      <div class="form-group">
+        <label for="orderNo">Order No:</label>
+        <input type="text" id="orderNo" class="form-control" required [(ngModel)]="order.orderNo" name="orderNo-{{i}}" #orderNo="ngModel">
       </div>
-      <div>
-        <label for="customer">customer:</label>
-        <input type="text" id="customer" required [(ngModel)]="order.customer" name="gtotal-{{i}}" #gtotal="ngModel" value="{{customer.name}}">
+      <div class="form-group">
+        <label for="pmethod">Payment Method:</label>
+        <input type="text" id="pmethod" class="form-control" required [(ngModel)]="order.pmethod" name="pmethod-{{i}}" #pmethod="ngModel">
       </div>
-    <button type="button" (click)="removeOrder(i)">Remove Order</button>
+      <div class="form-group">
+        <label for="gtotal">Grand Total:</label>
+        <input type="number" id="gtotal" class="form-control" required [(ngModel)]="order.gtotal" name="gtotal-{{i}}" #gtotal="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="customer">Customer:</label>
+        <input type="text" id="customer" class="form-control" required [(ngModel)]="order.customer" name="customer-{{i}}" #customer="ngModel" value="{{customer.name}}">
+      </div>
+      <button type="button" class="btn btn-danger" (click)="removeOrder(i)">Remove Order</button>
+    </div>
   </div>
-  <button type="button" (click)="addOrder()">Add Order</button>
 
-  <button type="submit" [disabled]="!customerForm.form.valid">Submit</button>
+  <button type="button" class="btn btn-primary mb-3" (click)="addOrder()">Add Order</button>
+  <button type="submit" class="btn btn-success" [disabled]="!customerForm.form.valid">Submit</button>
 </form>

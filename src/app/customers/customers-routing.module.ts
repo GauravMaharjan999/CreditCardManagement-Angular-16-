@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { AddComponent } from './add/add.component';
 
 
+
 const routes: Routes = [
   { path: '', component: CustomersComponent },
   { path: 'add', component:AddComponent  },
@@ -22,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)], 
+  exports:[RouterModule]
 })
 export class CustomersRoutingModule { }
