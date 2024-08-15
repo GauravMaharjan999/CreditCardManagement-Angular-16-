@@ -1,18 +1,20 @@
-<mat-toolbar class="header-toolbar">
+<mat-toolbar *ngIf="showSidebarAndToolbar" class="header-toolbar">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleSideBar()">
     <mat-icon>menu</mat-icon>
   </button>
   <span>My App</span>
   <span class="header-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  </button> -->
+  <app-theme-toggle></app-theme-toggle>
+
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>
-  </button>
+  </button> -->
 </mat-toolbar>
 
-<mat-drawer-container class="mat-card example-container" autosize class="content-container">
+<mat-drawer-container *ngIf="showSidebarAndToolbar" class="mat-card example-container" autosize class="content-container">
   <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="sidebarOpen" class="sidebar">
     <app-sidebar></app-sidebar>
   </mat-drawer>
@@ -22,4 +24,7 @@
   </mat-drawer-content>
 
 </mat-drawer-container>
+
+
+<router-outlet *ngIf="!showSidebarAndToolbar"></router-outlet>
 

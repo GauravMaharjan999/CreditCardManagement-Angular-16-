@@ -27,7 +27,6 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Log form value changes
     this.customerForm.valueChanges.subscribe(value => {
       console.log('Form Value Changed:', value);
     });
@@ -48,7 +47,7 @@ export class AddComponent implements OnInit {
       customerId: [this.customerForm.get('customerId')?.value],
       pmethod: ['', Validators.required],
       gtotal: [0, [Validators.required, Validators.min(0)]],
-      orderItems: this.fb.array([this.createOrderItem()]),
+      orderItems: this.fb.array([])  // Initialize as an empty array
     });
   }
 
@@ -79,21 +78,16 @@ export class AddComponent implements OnInit {
 
   onSubmit(): void {
     if (this.customerForm.valid) {
-      debugger
       const customerData: Customer = this.customerForm.value;
-
       this.cs.createCustomer(customerData).subscribe({
         next: (response) => {
           alert('Customer added successfully!');
-          console.log('Customer added successfully!', response);
-          this.router.navigate(['/customer']); // Navigate back to the customer list after adding
+          this.router.navigate(['/customer']);
         },
         error: (error) => {
           console.error('Error adding customer:', error);
         }
       });
-
-      console.log('Customer added:', customerData);
     } else {
       console.error('Form is invalid');
     }
