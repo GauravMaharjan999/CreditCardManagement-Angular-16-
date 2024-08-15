@@ -1,0 +1,24 @@
+<div style="display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;">
+<ng-container *ngIf="formTitle; else emptyDiv">
+  <div>
+    <h1 style="margin: 0; padding: 0;">{{formTitle}}</h1>
+  </div>
+</ng-container>
+
+<!-- Template for the empty div -->
+<ng-template #emptyDiv>
+  <span></span>
+</ng-template>
+<div>
+  <button mat-raised-button 
+  color="accent" 
+  (click)="goBack()" 
+  style="margin: 0;">
+{{label}}
+</button>
+</div>
+ 
+</div>

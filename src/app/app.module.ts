@@ -13,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { HelperModule } from './helper/helper.module'; // Import the module containing BackButtonComponent
+
 
 
 
@@ -31,7 +33,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSidenavModule,
     HttpClientModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    HelperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

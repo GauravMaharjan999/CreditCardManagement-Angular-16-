@@ -1,43 +1,107 @@
-<h2 class="text-center mb-4">Add Customer</h2>
-<form (ngSubmit)="onSubmit()" #customerForm="ngForm" class="container">
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input type="text" id="name" class="form-control" required [(ngModel)]="customer.name" name="name" #name="ngModel">
-  </div>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title"></h4>
+            <div style="width: 100%;">
+              <app-back-button formTitle="Add Customer Profile" label="Go Back"></app-back-button>
+            </div>
+            <p class="card-category">Complete the customer profile</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" class="notBgColor">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Name" formControlName="name" required>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email" type="email" required>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="Phone" formControlName="phone" type="tel" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              
+              <div formArrayName="orders">
+                <div *ngFor="let order of orders.controls; let i = index" [formGroupName]="i" class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Order {{ i + 1 }}</h5>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Order No</mat-label>
+                          <input matInput placeholder="Order No" formControlName="orderNo" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Payment Method</mat-label>
+                          <input matInput placeholder="Payment Method" formControlName="pmethod" required>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Grand Total</mat-label>
+                          <input matInput placeholder="Grand Total" formControlName="gtotal" type="number" required>
+                        </mat-form-field>
+                      </div>
+                    </div>
 
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" id="email" class="form-control" required [(ngModel)]="customer.email" name="email" #email="ngModel">
-  </div>
+                    <!-- Child FormArray for Order Items -->
+                    <div formArrayName="orderItems">
+                      <div *ngFor="let item of getOrderItems(i).controls; let j = index" [formGroupName]="j" class="card mb-2">
+                        <div class="card-body">
+                          <h6 class="card-subtitle mb-2">Item {{ j + 1 }}</h6>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Item Name</mat-label>
+                                <input matInput placeholder="Item Name" formControlName="name" required>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Quantity</mat-label>
+                                <input matInput placeholder="Quantity" formControlName="quantity" type="number" required>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Price</mat-label>
+                                <input matInput placeholder="Price" formControlName="price" type="number" required>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <button mat-raised-button type="button" color="warn" (click)="removeOrderItem(i, j)">Remove Item</button>
+                        </div>
+                      </div>
+                      <button mat-raised-button type="button" color="primary" (click)="addOrderItem(i)">Add Item</button>
+                    </div>
 
-  <div class="form-group">
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" class="form-control" required [(ngModel)]="customer.phone" name="phone" #phone="ngModel">
-  </div>
-
-  <div *ngFor="let order of customer.orders; let i = index" class="card mb-3">
-    <div class="card-body">
-      <h3 class="card-title">Order {{ i + 1 }}</h3>
-      <div class="form-group">
-        <label for="orderNo">Order No:</label>
-        <input type="text" id="orderNo" class="form-control" required [(ngModel)]="order.orderNo" name="orderNo-{{i}}" #orderNo="ngModel">
+                    <button mat-raised-button type="button" color="warn" (click)="removeOrder(i)">Remove Order</button>
+                  </div>
+                </div>
+              </div>
+              
+              <button mat-raised-button type="button" color="primary" (click)="addOrder()">Add Order</button>
+              <button mat-raised-button type="submit" color="accent" [disabled]="!customerForm.valid">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="pmethod">Payment Method:</label>
-        <input type="text" id="pmethod" class="form-control" required [(ngModel)]="order.pmethod" name="pmethod-{{i}}" #pmethod="ngModel">
-      </div>
-      <div class="form-group">
-        <label for="gtotal">Grand Total:</label>
-        <input type="number" id="gtotal" class="form-control" required [(ngModel)]="order.gtotal" name="gtotal-{{i}}" #gtotal="ngModel">
-      </div>
-      <div class="form-group">
-        <label for="customer">Customer:</label>
-        <input type="text" id="customer" class="form-control" required [(ngModel)]="order.customer" name="customer-{{i}}" #customer="ngModel" value="{{customer.name}}">
-      </div>
-      <button type="button" class="btn btn-danger" (click)="removeOrder(i)">Remove Order</button>
     </div>
   </div>
-
-  <button type="button" class="btn btn-primary mb-3" (click)="addOrder()">Add Order</button>
-  <button type="submit" class="btn btn-success" [disabled]="!customerForm.form.valid">Submit</button>
-</form>
+</div>

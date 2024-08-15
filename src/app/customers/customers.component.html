@@ -1,10 +1,20 @@
 <h2>Customer List</h2>
 <!-- <button mat-button (click)="addCustomer()">Add Customer</button> -->
 
-<a href="/customer/add">
-  Add Customer
+<div style="display: flex; 
+justify-content: space-between;
+align-items: center;
+width: 100%;">
+  <a mat-raised-button color="accent" [routerLink]="['add']">
+    <mat-icon aria-hidden="false" aria-label="Example edit icon" fontIcon="add"></mat-icon>
+    Add Customer
 
-</a>
+  </a>
+  <app-back-button></app-back-button>
+</div>
+  
+
+  
 <table mat-table [dataSource]="customers" class="mat-elevation-z8">
 
   <!-- ID Column -->

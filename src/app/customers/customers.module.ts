@@ -21,6 +21,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HelperModule } from "../helper/helper.module";
+
+// Custom Directive
 
 
 
@@ -48,9 +51,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
-    
-    
-  ]
+    RouterModule,
+    HelperModule,
+  
+]
 })
 export class CustomersModule { }

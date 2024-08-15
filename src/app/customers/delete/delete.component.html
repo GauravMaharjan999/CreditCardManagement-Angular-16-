@@ -1,1 +1,91 @@
-<p>delete works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title"></h4>
+              <div style="width: 100%;">
+                <app-back-button formTitle="Delete Customer Profile" label="Go Back"></app-back-button>
+              </div>
+              <p class="card-category">Complete the customer profile</p>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="customerDeleteForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width" class="notBgColor">
+                      <mat-label>Name</mat-label>
+                      <input matInput placeholder="Name" formControlName="name" required >
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Email</mat-label>
+
+                      <input matInput placeholder="Email" formControlName="email" type="email" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                    <mat-label>Phone</mat-label>
+
+                      <input matInput placeholder="Phone" formControlName="phone" type="tel" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  
+                </div>
+                
+                <div formArrayName="orders">
+                  <div *ngFor="let order of orders.controls; let i = index" [formGroupName]="i" class="card mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Order {{ i + 1 }}</h5>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Order No</mat-label>
+
+                            <input matInput placeholder="Order No" formControlName="orderNo" required>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Payment Method</mat-label>
+
+                            <input matInput placeholder="Payment Method" formControlName="pmethod" required>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Grand Total</mat-label>
+
+                            <input matInput placeholder="Grand Total" formControlName="gtotal" type="number" required>
+                          </mat-form-field>
+                        </div>
+                        <!-- <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Grand Total</mat-label>
+
+                            <input matInput placeholder="Grand Total" formControlName="customer" [value]="customerDeleteForm.get('name')?.value" readonly>
+                          </mat-form-field>
+                        </div> -->
+                      </div>
+                      <!-- <button mat-raised-button type="button" color="warn" (click)="removeOrder(i)">Remove Order</button> -->
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- <button mat-raised-button type="button" color="primary" (click)="deleteOrder()">delete Order</button> -->
+                <button mat-raised-button type="submit" color="warn" [disabled]="!customerDeleteForm.valid">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

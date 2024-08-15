@@ -1,3 +1,5 @@
+import { OrderItem } from "./order-item.model";
+
 export interface Order {
   orderId: number;
   orderNo: string;
@@ -5,4 +7,6 @@ export interface Order {
   pmethod: string;
   gtotal: number;
   customer: string;
+  orderItems: OrderItem[];
+
 }

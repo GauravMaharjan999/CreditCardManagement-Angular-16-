@@ -3,9 +3,9 @@ import { Order } from "./order.model";
 
 export interface Customer {
   customerId: number;
-    name: string;
-    email: string;
-    phone: string;
+    name?: string;
+    email?: string;
+    phone?: string;
     // creditCards: CreditCard[];
   orders: Order[];
   }
